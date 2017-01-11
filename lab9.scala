@@ -44,14 +44,7 @@ object Date {
   def apply(d: Int, m: Int) = new Date(d, m)
 }
 
-val d = new Date(15,12)
-d.przesun(20)
-d.month 
-d.day 
-
-
 class Date2(private var d: Int, private var m: Int){  
-  //private var value: Int = ((y-1)*30)+(x-1)
   if(d > 30) d = 30
   else if(d < 1) d = 1
   
@@ -86,8 +79,6 @@ d2.przesun(16)
 d2.month 
 d2.day 
 
-// 3
-
 class Student(val index: Int, val imie: String, var nazwisko: String, var miasto: String = "", var dochody: Int = 0){
   
   def this(index: Int, im: String, nazw: String, doch: Int){
@@ -98,13 +89,3 @@ class Student(val index: Int, val imie: String, var nazwisko: String, var miasto
     index +" "+imie+" "+nazwisko+" "+miasto+" "+dochody
   }
 }
-
-val a = new Student(12, "Jan", "Kowalski")
-
-val b = new Student(12, "Jan", "Kowalski", "Wroclaw")
-
-val c = new Student(12, "Jan", "Kowalski", 200)
-
-c.miasto
-
-val d = new Student(12, "Jan", "Kowalski", "Wroclaw", 300)

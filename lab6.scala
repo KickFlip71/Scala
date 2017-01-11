@@ -1,4 +1,3 @@
-//SCALA:
 
 def ltest (n:Int): Stream[Int] = {
   def helper(x:Int):Stream[Int]={
@@ -7,5 +6,3 @@ def ltest (n:Int): Stream[Int] = {
   }
   helper(n)
 }
-
-ltest(5).take(10) toList
