@@ -28,6 +28,21 @@ class Queue[+A] (private val l1: List[A], private val l2: List[A]) {
     }
   }
   def isEmpty = l1 == Nil
+ 
+  override def toString = {
+    var copy = this
+    var result = ""
+    
+    while(!copy.isEmpty){
+      copy.first match{
+        case _: Pixel => result += "pixel: " + copy.first
+        case _ => result += "point: " + copy.first 
+      }
+      copy = copy.dequeue()
+    }
+    result
+  }
+  
 }
 
 class Point(var x:Double = 0.0, var y:Double = 0.0) {
@@ -43,15 +58,19 @@ var queue = new Queue[Point]
 val point = new Point()
 val pixel = new Pixel()
 
-val queue = u.enqueue(point).enqueue(pixel)
+queue = queue.enqueue(pixel)
 queue.first
 queue.dequeue.first
 
 // Test 2
-var queueOfPoints = new Queue[Point].enqueue(point)
+var queueOfPoints = new Queue[Point].enqueue(pixel).enqueue(point)
+queueOfPoints.enqueue(point)
 queueOfPoints.first
 var queueOfPixels = new Queue[Pixel].enqueue(pixel)
 queueOfPixels.first
 
-queueOfPoints = queueOfPixels
+queueOfPoints.first
+
+queueOfPoints = queueOfPixels 
+queueOfPoints.toString()
 queueOfPoints.first
